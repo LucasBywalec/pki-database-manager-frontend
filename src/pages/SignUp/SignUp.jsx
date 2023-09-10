@@ -12,7 +12,7 @@ export default function SignUp() {
   const [registrationError, setRegistrationError] = useState(null);
 
   function isValidData() {
-    return !(data.email.includes('@') && data.lastname !== '' && data.firstname !== '' && data.password !== '');
+    return data.email.includes('@') && data.lastname !== '' && data.firstname !== '' && data.password !== '';
   }
 
   function handleDataChange(event, key) {
@@ -21,6 +21,7 @@ export default function SignUp() {
 
   function handleSubmit() {
     if (!isValidData()) {
+      console.log(data);
       window.alert('Please provide valid data.');
       return;
     }
