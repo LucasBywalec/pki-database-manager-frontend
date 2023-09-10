@@ -3,11 +3,11 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
 import axios from 'axios'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function SignIn() {
   const [data, setData] = useState({ email: '', password: ''});
-
+  const navigate = useNavigate();
   const BASE_PATH = "https://db-manager-9jaj.onrender.com";
 
   function isValidData() {
@@ -28,7 +28,8 @@ export default function SignIn() {
     })
       .then((response) => {
         if (response.status === 200) {
-          window.location.href = "/main"
+          // window.location.href = "/main"
+          navigate('/main')
         } else {
           window.alert('Login failed. Please try again.');
         }

@@ -4,10 +4,12 @@ import Button from '@mui/material/Button';
 import { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignUp() {
   const [data, setData] = useState({ email: '', password: '', lastname: '', firstname: '', repassword: '' });
   const BASE_PATH = "https://db-manager-9jaj.onrender.com";
+  const navigate = useNavigate();
 
   const [registrationError, setRegistrationError] = useState(null);
 
@@ -31,7 +33,8 @@ export default function SignUp() {
       })
       .then((response) => {
         console.log('User registered successfully:', response.data);
-        window.location.href = "/signin"
+        // window.location.href = "/signin"
+        navigate('/signin');
         setRegistrationError(null);
       })
       .catch((error) => {
