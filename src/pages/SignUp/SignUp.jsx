@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom';
 
 export default function SignUp() {
   const [data, setData] = useState({ email: '', password: '', lastname: '', firstname: '', repassword: '' });
-  const BASE_PATH = "http://localhost:3000";
+  const BASE_PATH = "https://db-manager-9jaj.onrender.com";
 
-  const [registrationError, setRegistrationError] = useState(null); // State for registration error
+  const [registrationError, setRegistrationError] = useState(null);
 
   function isValidData() {
     return !(data.email.includes('@') && data.lastname !== '' && data.firstname !== '' && data.password !== '');
@@ -35,7 +35,6 @@ export default function SignUp() {
       })
       .catch((error) => {
         console.error('Registration failed:', error);
-        // Set the registration error message to be displayed
         setRegistrationError('Registration failed. Please try again.');
       });
   }

@@ -38,7 +38,7 @@ export default function MainPage() {
   const [addRecordOpen, setAddRecordOpen] = useState(false);
   const [editingRowId, setEditingRowId] = useState(null);
 
-  const BASE_PATH = "http://localhost:3000";
+  const BASE_PATH = "https://db-manager-9jaj.onrender.com";
 
   const tableChange = (event) => {
     setSelectedTable(event.target.value);
@@ -138,9 +138,8 @@ export default function MainPage() {
         data: rowData,
       });
 
-      // Refresh the table data after successful update
       await showingTable();
-      setEditingRowId(null); // Disable editing mode
+      setEditingRowId(null);
     } catch (error) {
       console.error(error);
     }
@@ -297,7 +296,7 @@ export default function MainPage() {
         <span style={{ color: 'black' }}>Remember to always type the table name in double quotes</span>
       </Box>
 
-      {/* Add Record Dialog */}
+      {/* Record Dialog */}
       <Dialog open={addRecordOpen} onClose={() => setAddRecordOpen(false)} fullWidth maxWidth="lg">
         <DialogTitle>Add New Record</DialogTitle>
         <DialogContent>
